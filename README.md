@@ -1,6 +1,7 @@
 # Halal Assistant
 
-A cross-platform mobile app that helps Muslims understand food ingredients.
+A cross-platform mobile app for Android and iOS that helps Muslims understand
+food ingredients.
 Scan a product barcode or type an ingredient list, and the app explains which
 ingredients raise no concern, which are clearly prohibited and which need to
 be verified — and why.
@@ -14,7 +15,7 @@ be verified — and why.
 
 | Requirement | How it is met |
 |---|---|
-| Cross-platform mobile app (Flutter) | [`mobile/`](mobile) — one Flutter codebase for Android and iOS (also builds for web) |
+| Cross-platform mobile app (Flutter) | [`mobile/`](mobile) — one Flutter codebase that builds native Android and iOS apps |
 | Mobile communicates with a server | [`backend/`](backend) — FastAPI REST server; every result shown in the app comes from it over HTTP (Dio) |
 | State management (BLoC) | `flutter_bloc` throughout: one bloc per feature, with events and states |
 | Pushed to GitHub | This repository |
@@ -147,7 +148,7 @@ The backend address is set in
 | Where the app runs | Address used |
 |---|---|
 | Android emulator | `http://10.0.2.2:8000` (automatic) |
-| iOS simulator, web | `http://localhost:8000` (automatic) |
+| iOS simulator | `http://localhost:8000` (automatic) |
 | Physical phone | The computer's address on the local network, passed at build time |
 
 For a physical phone, connect it to the same Wi-Fi as the computer and run:
@@ -180,8 +181,8 @@ Camera scanning needs a real camera, so test it on a physical phone:
 2. On the home screen tap **Scan Barcode** and allow camera access.
 3. Point the camera at the barcode of a packaged food product.
 
-Without a camera (simulator, emulator, web) the scanner screen shows a message
-and the barcode can be typed into the field below it, for example
+On a simulator or emulator there is no real barcode to point at, so type the
+barcode into the field below the camera view instead, for example
 `5000159407236` or `5449000000996`. A barcode that Open Food Facts does not
 know, such as `0000000000000`, shows the "Product not found" message with a
 button to enter the ingredients manually.
