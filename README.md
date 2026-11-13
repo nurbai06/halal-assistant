@@ -11,6 +11,14 @@ be verified — and why.
 > Absence of a halal certificate does not automatically mean that a product
 > is Haram.
 
+## Screenshots
+
+Running on an Android emulator (Android 15):
+
+| Home | Analysis result | Barcode scanner | History |
+|---|---|---|---|
+| ![Home](docs/screenshots/home.png) | ![Analysis result](docs/screenshots/result.png) | ![Barcode scanner](docs/screenshots/scanner.png) | ![History](docs/screenshots/history.png) |
+
 ## University requirements
 
 | Requirement | How it is met |
@@ -136,11 +144,22 @@ dictionary are created automatically on first start.
 
 ### 2. Mobile app (Flutter 3.50+)
 
+Building for Android needs the Android SDK (it comes with
+[Android Studio](https://developer.android.com/studio)); building for iOS
+needs Xcode on a Mac. `flutter doctor` shows what is missing.
+
+Start an Android emulator or an iOS simulator, then:
+
 ```bash
 cd mobile
 flutter pub get
 flutter run
 ```
+
+`flutter emulators` lists the emulators that are set up, and
+`flutter emulators --launch <id>` starts one. To get an installable Android
+package instead, run `flutter build apk`; the file is written to
+`mobile/build/app/outputs/flutter-apk/`.
 
 The backend address is set in
 [`mobile/lib/core/constants/api_config.dart`](mobile/lib/core/constants/api_config.dart):
